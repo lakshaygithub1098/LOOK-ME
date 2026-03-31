@@ -201,7 +201,7 @@ export default function ShopPage() {
 
       <div style={{ paddingTop: "88px" }}>
         {/* ── Page Header ── */}
-        <div className="max-w-7xl mx-auto px-6 pt-8 pb-4">
+        <div className="shop-header max-w-7xl mx-auto px-6 pt-8 pb-4">
           {/* Breadcrumb */}
           <div className="breadcrumb flex items-center gap-2 mb-4">
             <a href="/" className="hover:text-accent transition-colors" style={{ color: "var(--text-muted)", fontFamily: "'DM Sans', sans-serif", fontSize: "13px" }}>Home</a>
@@ -256,7 +256,7 @@ export default function ShopPage() {
         <div style={{ borderTop: "1px solid var(--border)", margin: "0 24px" }} />
 
         {/* ── Main Layout ── */}
-        <div className="max-w-7xl mx-auto px-6 py-8 flex gap-10">
+        <div className="shop-layout max-w-7xl mx-auto px-6 py-8 flex gap-10">
           {/* Left Sidebar — Desktop */}
           <div className="hidden md:block sticky self-start" style={{ minWidth: "200px", top: "88px" }}>
             <FilterPanel />
@@ -271,7 +271,7 @@ export default function ShopPage() {
               </div>
             ) : (
               <>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px" }}>
+                <div className="product-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px" }}>
                   {paginated.map((p, i) => (
                     <ProductCard key={p.id} product={p} index={i} />
                   ))}

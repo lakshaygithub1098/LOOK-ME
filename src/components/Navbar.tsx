@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, User, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { useCart } from "@/components/CartProvider";
@@ -21,12 +21,11 @@ interface NavbarProps {
 export default function Navbar({ transparentOnTop = false }: NavbarProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const { totalItems } = useCart();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") ?? "");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -36,16 +35,17 @@ export default function Navbar({ transparentOnTop = false }: NavbarProps) {
 
   useEffect(() => {
     if (pathname === "/shop") {
-      setSearchQuery(searchParams.get("q") ?? "");
+      const params = new URLSearchParams(window.location.search);
+      setSearchQuery(params.get("q") ?? "");
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const q = searchQuery.trim();
 
       if (pathname === "/shop") {
-        const params = new URLSearchParams(searchParams.toString());
+        const params = new URLSearchParams(window.location.search);
         if (q) {
           params.set("q", q);
         } else {
@@ -61,7 +61,7 @@ export default function Navbar({ transparentOnTop = false }: NavbarProps) {
     }, 250);
 
     return () => window.clearTimeout(timer);
-  }, [searchQuery, pathname, searchParams, router]);
+  }, [searchQuery, pathname, router]);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[900]">
@@ -77,7 +77,7 @@ export default function Navbar({ transparentOnTop = false }: NavbarProps) {
           transition: "all 0.4s ease" 
         }}
       >
-        <div className="mx-auto flex items-center justify-between h-14" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 40px" }}>
+        <div className="navbar-inner mx-auto flex items-center justify-between h-14" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 40px" }}>
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" style={{ opacity: 1, transition: "opacity 0.25s ease" }} onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }} onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}>
             <span
@@ -116,10 +116,10 @@ export default function Navbar({ transparentOnTop = false }: NavbarProps) {
           </div>
 
           {/* Right icons */}
-          <div className="flex items-center gap-3">
+          <div className="navbar-actions flex items-center gap-3">
             {/* Search box */}
             <div
-              className="hidden sm:flex items-center gap-2 px-3 py-2 rounded text-sm"
+              className="search-bar hidden sm:flex items-center gap-2 px-3 py-2 rounded text-sm"
               style={{ 
                 background: transparentOnTop && !scrolled ? "rgba(255,255,255,0.15)" : "var(--bg-secondary)", 
                 border: transparentOnTop && !scrolled ? "1px solid rgba(255,255,255,0.2)" : "1px solid var(--border)", 
@@ -189,7 +189,7 @@ export default function Navbar({ transparentOnTop = false }: NavbarProps) {
             </Link>
 
             <button
-              className="md:hidden"
+              className="mobile-menu-btn md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
               style={{ color: transparentOnTop && !scrolled ? "#FFFFFF" : "var(--text-primary)", background: "none", border: "none", cursor: "pointer", padding: "6px" }}
             >

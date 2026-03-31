@@ -16,7 +16,7 @@ export default function CartPage() {
       <Navbar />
       <WhatsAppFloat />
 
-      <div className="pt-[110px] max-w-6xl mx-auto px-6 pb-20">
+      <div className="cart-page pt-[110px] max-w-6xl mx-auto px-6 pb-20">
         <h1 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginBottom: "24px" }}>Your Cart</h1>
 
         {cart.length === 0 ? (
@@ -29,6 +29,7 @@ export default function CartPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {cart.map((item) => (
                 <div
+                  className="cart-item-row"
                   key={`${item.product.id}-${item.size ?? "nosize"}`}
                   style={{
                     display: "grid",
@@ -52,7 +53,7 @@ export default function CartPage() {
                     <p style={{ fontWeight: 600 }}>₹{item.product.price.toLocaleString()}</p>
                   </div>
 
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "10px" }}>
+                  <div className="cart-item-actions" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "10px" }}>
                     <button
                       onClick={() => removeFromCart(item.product.id, item.size)}
                       style={{ border: "none", background: "transparent", color: "var(--text-muted)", cursor: "pointer" }}

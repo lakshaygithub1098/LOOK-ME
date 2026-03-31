@@ -35,9 +35,9 @@ export default function Footer() {
   return (
     <footer id="contact" className="site-footer" style={{ background: "#FFFFFF", borderTop: "1px solid #E0E0E0", marginTop: "56px" }}>
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-12 py-20" style={{ paddingTop: "64px", paddingBottom: "56px" }}>
+      <div className="footer-main max-w-7xl mx-auto px-6 md:px-12 py-20" style={{ paddingTop: "64px", paddingBottom: "56px" }}>
         <div
-          className="grid grid-cols-1 md:grid-cols-5 gap-16"
+          className="footer-grid grid grid-cols-1 md:grid-cols-5 gap-16"
           style={{ justifyItems: "center", textAlign: "center", width: "fit-content", margin: "0 auto" }}
         >
           {/* Left columns - 4 columns for links */}
@@ -77,7 +77,7 @@ export default function Footer() {
           ))}
 
           {/* Right column - Email subscription */}
-          <div style={{ maxWidth: "320px" }}>
+          <div className="footer-email" style={{ maxWidth: "320px" }}>
             <h4
               className="text-xs font-semibold tracking-widest uppercase mb-6"
               style={{

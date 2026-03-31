@@ -659,8 +659,139 @@ button,
 }
 
 @media (max-width: 768px) {
+  .navbar-inner {
+    padding: 0 16px !important;
+  }
+
+  .navbar-actions {
+    gap: 6px !important;
+  }
+
+  .search-bar {
+    min-width: 120px !important;
+    max-width: 150px;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .hero-copy {
+    padding: 32px 16px !important;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-image {
+    min-height: 54vh !important;
+  }
+
+  .section-container {
+    padding: 0 16px !important;
+  }
+
+  .cta-section {
+    padding: 72px 16px !important;
+  }
+
+  .shop-header,
+  .shop-layout,
+  .cart-page {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .shop-layout {
+    flex-direction: column;
+    gap: 20px !important;
+  }
+
+  .filters {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0 !important;
+    padding: 16px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .product-card {
+    border-radius: 8px;
+  }
+
+  .product-card .product-info {
+    padding: 8px;
+  }
+
+  .product-card .product-title,
+  .product-card .product-price {
+    font-size: 14px !important;
+  }
+
   .product-page {
     grid-template-columns: 1fr;
+  }
+
+  .product-gallery {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .product-thumbs {
+    flex-direction: row !important;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .product-main-image {
+    width: 100%;
+  }
+
+  .product-details {
+    padding: 10px 0;
+  }
+
+  .product-details button,
+  .product-details a.btn-whatsapp,
+  .product-details a.btn-outline {
+    width: 100% !important;
+  }
+
+  .cart-item-row {
+    grid-template-columns: 72px 1fr !important;
+    gap: 12px !important;
+  }
+
+  .cart-item-actions {
+    grid-column: 1 / -1;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center !important;
+  }
+
+  .footer-main {
+    padding-top: 48px !important;
+    padding-bottom: 36px !important;
+  }
+
+  .footer-grid {
+    gap: 36px !important;
+    width: 100% !important;
+  }
+
+  .footer-email {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  .whatsapp-float {
+    bottom: 16px;
+    right: 16px;
+    transform: scale(0.9);
   }
 
   .recommendation-grid {

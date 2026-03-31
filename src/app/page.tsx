@@ -30,6 +30,7 @@ export default function HomePage() {
           HERO  —  clean, minimalist with image on right
       ════════════════════════════════════════ */}
       <section
+        className="hero-section grid-cols-1 lg:grid-cols-2"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -38,7 +39,6 @@ export default function HomePage() {
           alignItems: "stretch",
           paddingTop: "0",
         }}
-        className="grid-cols-1 lg:grid-cols-2"
       >
         {/* Left side — text content */}
         <motion.div
@@ -56,7 +56,7 @@ export default function HomePage() {
             background: "#FFFFFF",
             minHeight: "100%",
           }}
-          className="px-8 lg:px-12"
+          className="hero-copy px-8 lg:px-12"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,6 +131,7 @@ export default function HomePage() {
             background: "var(--bg-secondary)",
             minHeight: "100%",
           }}
+          className="hero-image"
         >
           <Image
             src="/kurti_3.png"
@@ -148,7 +149,7 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <FadeInSection>
       <section style={{ padding: "80px 0", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
+        <div className="section-container" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +248,7 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <FadeInSection>
       <section style={{ padding: "80px 0 0 0", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
+        <div className="section-container" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -267,6 +268,7 @@ export default function HomePage() {
           </motion.h2>
 
           <div
+            className="product-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -299,7 +301,7 @@ export default function HomePage() {
       ════════════════════════════════════════ */}
       <FadeInSection>
       <section style={{ padding: "80px 0", background: "#FFFFFF" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
+        <div className="section-container" style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -319,6 +321,7 @@ export default function HomePage() {
           </motion.h2>
 
           <div
+            className="product-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -349,7 +352,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════
           CTA BANNER — Order on WhatsApp
       ════════════════════════════════════════ */}
-      <section style={{ background: "#F9F9F9", padding: "100px 40px", textAlign: "center" }}>
+      <section className="cta-section" style={{ background: "#F9F9F9", padding: "100px 40px", textAlign: "center" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

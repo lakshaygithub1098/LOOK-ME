@@ -55,9 +55,9 @@ export default function ProductDetailPage({ params }: PageProps) {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pb-16">
           <div className="product-page grid grid-cols-1 lg:grid-cols-2" style={{ gap: "60px" }}>
             <section>
-              <div style={{ display: "grid", gridTemplateColumns: "84px 1fr", gap: "16px" }}>
+              <div className="product-gallery" style={{ display: "grid", gridTemplateColumns: "84px 1fr", gap: "16px" }}>
                 {product.images.length > 1 && (
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <div className="product-thumbs" style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                     {product.images.map((img, i) => (
                       <button
                         key={img}
@@ -78,7 +78,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </div>
                 )}
 
-                <div style={{ position: "relative", aspectRatio: "3/4", borderRadius: "8px", overflow: "hidden", background: "var(--bg-secondary)" }}>
+                <div className="product-main-image" style={{ position: "relative", aspectRatio: "3/4", borderRadius: "8px", overflow: "hidden", background: "var(--bg-secondary)" }}>
                   <Image
                     src={product.images[selectedImage]}
                     alt={product.name}
